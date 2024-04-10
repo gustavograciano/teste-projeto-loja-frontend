@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import CadastroProduto from './components/CadastroProduto';
+import ListaProdutos from './components/ListaProduto';
+import CadastroUsuario from './components/CadastroUsuario';
+import ListaUsuarios from './components/ListaUsuario';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/produtos">Lista de Produtos</Link>
+            </li>
+            <li>
+              <Link to="/cadastro-produto">Cadastrar Produto</Link>
+            </li>
+            <li>
+              <Link to="/usuarios">Lista de Usuários</Link>
+            </li>
+            <li>
+              <Link to="/cadastro-usuario">Cadastrar Usuário</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/produtos" exact component={ListaProdutos} />
+          <Route path="/cadastro-produto" component={CadastroProduto} />
+          <Route path="/usuarios" exact component={ListaUsuarios} />
+          <Route path="/cadastro-usuario" component={CadastroUsuario} />
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

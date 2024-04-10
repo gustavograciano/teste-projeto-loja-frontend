@@ -1,0 +1,117 @@
+/* Estilos globais para a aplicação */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px; /* Aumentando o espaçamento interno */
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+  color: #007bff;
+  margin-bottom: 20px; /* Maior espaçamento abaixo dos títulos */
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 20px; /* Maior espaçamento abaixo do formulário */
+}
+
+input, button {
+  margin-bottom: 20px; /* Maior espaçamento entre inputs e botões */
+  padding: 15px; /* Aumentando o padding */
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px; /* Maior espaçamento acima do rodapé */
+  color: #777;
+}
+
+.produtos-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.produto-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px; /* Maior espaçamento entre os itens da lista */
+}
+
+.produto-info {
+  flex-grow: 1; /* Ocupa todo o espaço disponível */
+}
+
+button {
+  padding: 12px 16px; /* Ajustando o padding do botão */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 20px; /* Adicionando margem à esquerda para separar os botões */
+}
+
+
+.back-link {
+  display: block;
+  margin-bottom: 20px;
+  color: blue;
+}
+
+.pedidos-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pedidos-table th, .pedidos-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.pedidos-table th {
+  background-color: #f2f2f2;
+}

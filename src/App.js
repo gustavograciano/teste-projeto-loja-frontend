@@ -1,38 +1,41 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import CadastroProduto from './components/CadastroProduto';
-import ListaProdutos from './components/ListaProduto';
+import GerenciarProdutos from './components/GerenciarProdutos';
+import Loja from './components/Loja';
 import CadastroUsuario from './components/CadastroUsuario';
 import ListaUsuarios from './components/ListaUsuario';
+import Login from './components/Login';
+import DashboardAdmin from './components/DashboardAdmin';
+import ListaPedidos from './components/ListaPedidos';
+
 
 const App = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = (adminStatus) => {
+    setIsAdmin(adminStatus);
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    setIsAdmin(false);
+    setIsAuthenticated(false);
+  };
+
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/produtos">Lista de Produtos</Link>
-            </li>
-            <li>
-              <Link to="/cadastro-produto">Cadastrar Produto</Link>
-            </li>
-            <li>
-              <Link to="/usuarios">Lista de Usuários</Link>
-            </li>
-            <li>
-              <Link to="/cadastro-usuario">Cadastrar Usuário</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Switch>
-          <Route path="/produtos" exact component={ListaProdutos} />
-          <Route path="/cadastro-produto" component={CadastroProduto} />
-          <Route path="/usuarios" exact component={ListaUsuarios} />
-          <Route path="/cadastro-usuario" component={CadastroUsuario} />
-        </Switch>
-      </div>
+      <Routes>
+        <Route path="/loja" element={<Loja />} />
+        <Route path="/cadastro-produto" element={<CadastroProduto />} />
+        <Route path="/gerenciar-produto" element={<GerenciarProdutos />} />
+        <Route path="/usuarios" element={<ListaUsuarios />} />
+        <Route path="/cadastro-usuario" element={<CadastroUsuario />} />
+        <Route path="/lista-pedidos" element={<ListaPedidos />} />
+        <Route path="/dashboard" element={<DashboardAdmin isAdmin={isAdmin} />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
+      </Routes>
     </Router>
   );
 };
